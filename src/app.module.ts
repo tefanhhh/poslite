@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
+import { UsersModule } from './users/users.module';
 import 'dotenv/config';
 
 @Module({
-  imports: [],
+  imports: [UsersModule],
   controllers: [],
   providers: [],
 })
