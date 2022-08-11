@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { ThrottlerModule, ThrottlerGuard } from '@nestjs/throttler';
 import { UsersModule } from './users/users.module';
 import 'dotenv/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -10,6 +11,10 @@ import { RolesGuard } from './auth/roles.guard';
 
 @Module({
   imports: [
+    ThrottlerModule.forRoot({
+      ttl: 60,
+      limit: 10,
+    }),
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.DB_HOST,
@@ -32,6 +37,10 @@ import { RolesGuard } from './auth/roles.guard';
     {
       provide: APP_GUARD,
       useClass: RolesGuard,
+    },
+    {
+      provide: APP_GUARD,
+      useClass: ThrottlerGuard
     },
   ],
 })
