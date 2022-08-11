@@ -3,3 +3,4 @@ export const JWT_ATTRIBUT = {
 };
 
 export const PUBLIC_KEY = 'isPublic';
+export const ROLES_KEY = 'roles';
