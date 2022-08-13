@@ -1,4 +1,4 @@
-import { Role } from 'src/enums/role.enum';
+import { Role } from 'src/shared/enums/role.enum';
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
@@ -21,6 +21,6 @@ export class User {
   @Column({ default: true })
   isActive: boolean;
 
-  @Column({ type: 'enum' })
+  @Column({ type: 'enum', enumName: 'role', enum: Role, array: true })
   roles: Role[];
 }
