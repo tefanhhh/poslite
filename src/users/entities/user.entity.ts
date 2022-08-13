@@ -21,6 +21,6 @@ export class User {
   @Column({ default: true })
   isActive: boolean;
 
-  @Column({ type: 'enum' })
+  @Column({ type: 'enum', enumName: 'role', enum: Role, array: true })
   roles: Role[];
 }
