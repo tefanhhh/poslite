@@ -7,6 +7,8 @@ import { join } from 'path';
 import * as handlebars from 'hbs';
 import * as fs from 'fs';
 
+declare const module: any;
+
 function registerComponents() {
   const dir = join(__dirname, '..', 'views', 'components');
   const filenames = fs.readdirSync(dir);
@@ -31,5 +33,9 @@ async function bootstrap() {
   // app.use(csurf());
   registerComponents();
   await app.listen(3000);
+  if (module.hot) {
+    module.hot.accept();
+    module.hot.dispose(() => app.close());
+  }
 }
 bootstrap();

@@ -9,7 +9,7 @@ export class LoginController {
   @Render('index')
   index(): ViewInterface {
     return {
-      title: 'Login Page',
+      title: 'Login Pages',
       template: () => {
         return 'login';
       },
