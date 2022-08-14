@@ -21,6 +21,7 @@ export class AppController {
   @Render('index')
   index(): ViewInterface {
     return {
+      title: 'Home Page',
       template: () => {
         return 'index';
       },

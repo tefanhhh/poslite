@@ -3,5 +3,5 @@
 module.exports = {
   content: ['./views/**/*.hbs'],
   theme: {},
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 };
