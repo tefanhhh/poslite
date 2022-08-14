@@ -20,7 +20,9 @@ export class AppController {
   @Render('index')
   root() {
     return {
-      message: 'Hello World',
+      body: () => {
+        return 'login';
+      },
     };
   }
 
