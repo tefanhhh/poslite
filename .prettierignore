@@ -4,3 +4,4 @@ README.md
 .eslintrc.js
 .prettierrc
 *.json
+*.hbs
